@@ -1,75 +1,206 @@
-<img width="1536" height="1024" alt="readme md banner" src="https://github.com/user-attachments/assets/0058a8a3-3fa9-4afb-978b-25c31c36fa6e" />
+# Enterprise VMware vSphere Lab on Azure Nested Virtualization
 
-## Project Overview
+![Azure](https://img.shields.io/badge/Azure-Cloud-blue)
+![Windows Server](https://img.shields.io/badge/Windows%20Server-2022-blue)
+![Hyper-V](https://img.shields.io/badge/Hyper--V-Nested%20Virtualization-purple)
+![VMware](https://img.shields.io/badge/VMware-vSphere-orange)
+![ESXi](https://img.shields.io/badge/ESXi-8.x-green)
+![vCenter](https://img.shields.io/badge/vCenter-Server-red)
+![Networking](https://img.shields.io/badge/Networking-TCP%2FIP-orange)
+![Lab](https://img.shields.io/badge/Project-Home%20Lab-lightgrey)
 
-This project demonstrates the design, deployment, and administration of an enterprise VMware environment hosted in Microsoft Azure using nested virtualization.
+# Enterprise VMware vSphere Infrastructure Lab
 
-The lab was built to simulate a real-world virtualization platform and provide hands-on experience with VMware infrastructure administration, Active Directory integration, storage management, networking, High Availability (HA), Distributed Resource Scheduler (DRS), and incident troubleshooting.
+## Overview
 
-## Objectives
+This project demonstrates the deployment of an enterprise-style VMware vSphere environment using nested virtualization inside Microsoft Azure.
 
-- Deploy a VMware environment in Azure
-- Implement centralized identity services using Active Directory
-- Configure shared storage using iSCSI
-- Deploy VMware ESXi hosts
-- Deploy VMware vCenter Server
-- Configure a VMware cluster
-- Enable High Availability (HA)
-- Enable Distributed Resource Scheduler (DRS)
-- Deploy workload virtual machines
-- Simulate and resolve enterprise VMware incidents
+The goal of this lab is to simulate a real-world virtualization environment commonly found in enterprise infrastructure and MSP environments.
 
-## Technologies Used
+The environment includes two ESXi hosts managed by vCenter Server, virtual networking, storage services, and Windows/Linux workloads.
 
-- Microsoft Azure
-- VMware ESXi
-- VMware vCenter Server
-- Windows Server 2022
-- Active Directory Domain Services
-- DNS
-- iSCSI Storage
-- VMware HA
-- VMware DRS
+The project focuses on hands-on experience with:
 
-## Architecture
+- VMware ESXi administration
+- vCenter Server management
+- Virtual networking
+- Virtual machine lifecycle management
+- Storage configuration
+- High availability concepts
+- Infrastructure troubleshooting
 
-The environment consists of:
+---
 
-- Azure Resource Group
-- Virtual Network
-- Domain Controller
-- Shared Storage Server
-- Two VMware ESXi Hosts
-- VMware vCenter Server
-- Multiple workload virtual machines
+# Architecture
 
-## Documentation
+<img width="1306" height="1205" alt="Topology" src="https://github.com/user-attachments/assets/b1b94825-1e7c-4537-b49e-251265f82dc9" />
 
-| Document | Description |
-| --- | --- |
-| 01-Design.md | Solution architecture and planning |
-| 02-Azure.md | Azure infrastructure deployment |
-| 03-AD.md | Active Directory deployment |
-| 04-Storage.md | Shared storage configuration |
-| 05-ESXi.md | ESXi host deployment |
-| 06-vCenter.md | vCenter deployment |
-| 07-Cluster.md | Cluster configuration |
-| 08-Networking.md | VMware networking |
-| 09-Workloads.md | Virtual machine deployment |
-| 10-Incidents.md | Enterprise troubleshooting scenarios |
+---
 
-## Skills Demonstrated
+# Project Objectives
 
-- Infrastructure Design
-- VMware Administration
-- Azure Administration
-- Active Directory
-- DNS Administration
-- Storage Administration
-- Virtualization
-- Incident Response
-- Root Cause Analysis
+The objectives of this project are:
 
-## Author
+- Build an enterprise VMware environment from scratch
+- Deploy multiple ESXi hosts
+- Configure vCenter Server
+- Create and manage virtual machines
+- Understand VMware networking concepts
+- Configure shared storage
+- Practice virtualization troubleshooting
+- Document infrastructure changes
 
-This project was created as part of my Infrastructure Engineering and VMware Administration portfolio.
+---
+
+# Environment Details
+
+## Azure Infrastructure
+
+| Component | Configuration |
+|---|---|
+| Cloud Platform | Microsoft Azure |
+| Operating System | Windows Server 2022 Datacenter |
+| CPU | 4 vCPU |
+| Memory | 32GB RAM |
+| Hypervisor | Hyper-V |
+| Virtualization Type | Nested Virtualization |
+
+---
+
+# Hyper-V Layer
+
+The Azure VM acts as the physical virtualization host.
+
+Configured components:
+
+- Hyper-V Role
+- Virtual Switches
+- Nested virtualization
+- Virtual networking
+
+---
+
+# VMware Environment
+
+## ESXi Hosts
+
+| Hostname | IP Address | Purpose |
+|---|---|---|
+| MVIT-ESXI01 | 192.168.100.10 | VMware Hypervisor |
+| MVIT-ESXI02 | 192.168.100.20 | VMware Hypervisor |
+
+---
+
+## vCenter Server
+
+| Component | IP Address |
+|-|-|
+| vCenter Server Appliance | 192.168.100.30 |
+
+vCenter provides centralized management for:
+
+- ESXi hosts
+- Virtual machines
+- Clusters
+- Networking
+- Storage
+
+---
+
+# Network Design
+
+## Management Network
+- Network: 192.168.100.0/24
+
+- Gateway: 192.168.100.254
+
+
+## IP Address Allocation
+
+| Device | IP |
+|---|---|
+| ESXi01 Management | 192.168.100.10 |
+| ESXi02 Management | 192.168.100.20 |
+| vCenter | 192.168.100.20 |
+| Domain Controller | 192.168.100.1 |
+| Storage Server | 192.168.100.2 |
+
+---
+
+# Project Phases
+
+## Phase 1 - Azure & VMWare Workststion Deployment
+
+Completed tasks:
+
+- Deployed Azure Windows Server VM
+- Installed VMWare Workstation
+- Enabled nested virtualization
+
+---
+
+## Phase 2 - ESXi Host Deployment
+
+Tasks:
+
+- Created ESXi virtual machines
+- Installed VMware ESXi
+- Configured management networking
+- Assigned static IP addresses
+
+---
+
+## Phase 3 - vCenter Deployment
+
+Tasks:
+
+- Installed vCenter Server Appliance
+- Added ESXi hosts
+- Created datacenter
+- Created cluster
+
+---
+
+## Phase 4 - Virtual Networking
+
+Tasks:
+
+- Configure standard switches
+- Configure VM networks
+- Configure VMkernel adapters
+- Test connectivity
+
+---
+
+## Phase 5 - Storage Configuration
+
+Tasks:
+
+- Deploy storage server
+- Configure iSCSI storage
+- Create VMFS datastore
+- Present shared storage to ESXi hosts
+
+---
+
+## Phase 6 - VMware Enterprise Features
+
+Testing:
+
+- Virtual machine migration
+- Snapshots
+- Templates
+- Permissions
+- Resource management
+- High Availability concepts
+
+---
+
+
+# Author
+
+**Mvula**
+
+IT Support Technician | L2 Infrastructure Enthusiast
+
+This project was created to demonstrate practical enterprise virtualization skills and infrastructure troubleshooting experience.
