@@ -23,10 +23,6 @@ Configuration:
 | RAM | 32GB |
 | Purpose | VMware Lab Host |
 
-### Screenshot
-
-![Azure VM Deployment](screenshots/azure-vm.png)
-
 ---
 
 ## 2. VMware Workstation Installation
@@ -34,10 +30,6 @@ Configuration:
 Installed VMware Workstation 17 Pro on the Azure VM.
 
 Configured VMware Workstation to create and manage nested virtual machines.
-
-### Screenshot
-
-![VMware Workstation](screenshots/vmware-workstation.png)
 
 ---
 
@@ -55,9 +47,6 @@ Result:
 A hypervisor has been detected.
 
 
-### Screenshot
-
-![Nested Virtualization Enabled](screenshots/nested-virtualization.png)
 
 ---
 
